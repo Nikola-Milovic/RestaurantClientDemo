@@ -7,6 +7,8 @@ plugins {
     id(GradlePluginId.KOTLIN_ANDROID_EXTENSIONS)
     id(GradlePluginId.KOTLIN_KAPT)
     id(GradlePluginId.SAFE_ARGS)
+    id(GradlePluginId.GOOGLE_SERVICES)
+
 }
 
 android {
@@ -59,6 +61,8 @@ dependencies {
     api(LibraryDependency.SUPPORT_CONSTRAINT_LAYOUT)
 
     api(LibraryDependency.TIMBER)
+
+    implementation("com.google.firebase:firebase-analytics:17.2.2")
 
     addTestDependencies()
 }
