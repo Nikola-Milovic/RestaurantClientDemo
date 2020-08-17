@@ -2,6 +2,7 @@ package com.nikolam.restaurantclientdemo
 
 import android.app.Application
 import com.nikolam.core.di.firebaseModule
+import com.nikolam.core.di.orderPersistantModule
 import com.nikolam.menu.di.dataModule
 import com.nikolam.menu.di.viewmodelModule
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +18,7 @@ class RestaurantClientApplication : Application(){
         startKoin{
             androidLogger()
             androidContext(this@RestaurantClientApplication)
-            modules(firebaseModule, viewmodelModule, dataModule)
+            modules(firebaseModule, viewmodelModule, dataModule, orderPersistantModule, com.nikolam.order.di.viewmodelModule)
         }
 
         // This will initialise Timber
