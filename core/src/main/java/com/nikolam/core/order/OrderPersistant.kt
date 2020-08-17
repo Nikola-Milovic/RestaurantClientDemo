@@ -8,7 +8,10 @@ class OrderPersistant () {
     private val orderItems  = arrayListOf<OrderItem>(OrderItem("Pizza", 2, ""), OrderItem("Pasta", 1 , ""))
 
     fun addOrderItem(menuItem: MenuItem){
-        //
+        val orderItem = OrderItem()
+        orderItem.name = menuItem.name
+
+        orderItems.add(orderItem)
     }
 
     fun removeOrderItem(orderItem: OrderItem){

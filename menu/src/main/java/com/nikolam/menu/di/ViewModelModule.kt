@@ -9,6 +9,6 @@ val viewmodelModule = module {
 
     viewModel{ MenuViewModel(get()) }
 
-    viewModel{ ItemDetailViewModel(get())}
+    viewModel{ ItemDetailViewModel(get(), get())}
 
 }
