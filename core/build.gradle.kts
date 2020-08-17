@@ -37,24 +37,9 @@ android {
     buildFeatures {
         dataBinding = true
     }
-
-
 }
 
 dependencies {
-    implementation(LibraryDependency.ANDROID_LEGACY_SUPPORT)
-    implementation(LibraryDependency.LIFECYCLE_EXTENSIONS)
-    implementation(LibraryDependency.LIFECYCLE_VIEW_MODEL_KTX)
-
-    api(LibraryDependency.NAVIGATION_FRAGMENT_KTX)
-    api(LibraryDependency.NAVIGATION_UI_KTX)
-    api(LibraryDependency.NAVIGATION_DYNAMIC_FEATURES)
-
-    api(LibraryDependency.RECYCLER_VIEW)
-    api(LibraryDependency.MATERIAL)
-    api(LibraryDependency.FRAGMENT_KTX)
-    api(LibraryDependency.SUPPORT_CONSTRAINT_LAYOUT)
-
     api(LibraryDependency.TIMBER)
 
     api(LibraryDependency.KOIN_ANDROID)
@@ -63,8 +48,6 @@ dependencies {
     api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
 
     api(LibraryDependency.FIREBASE_FIRESTORE)
-
-    implementation(project(":core"))
 
     addTestDependencies()
 }

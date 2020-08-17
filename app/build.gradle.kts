@@ -39,10 +39,9 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-//    buildFeatures {
-//        dataBinding = true
-//    }
-
+    buildFeatures {
+        dataBinding = true
+    }
 
 }
 
@@ -63,7 +62,17 @@ dependencies {
     api(LibraryDependency.TIMBER)
 
 
-    implementation(LibraryDependency.GOOGLE_ANALYTICS)
+    implementation(LibraryDependency.FIREBASE_ANALYTICS)
+
+    api(LibraryDependency.KOIN_ANDROID)
+    api(LibraryDependency.KOIN_ANDROID_EXTENSION)
+    api(LibraryDependency.KOIN_ANDROID_SCOPE)
+    api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
+
+
+    implementation(project(":menu"))
+    implementation(project(":core"))
+
 
     addTestDependencies()
 }

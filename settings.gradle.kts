@@ -4,3 +4,4 @@ rootProject.name = "RestaurantClientDemo"
 
 include(":app")
 include(":menu")
+include(":core")

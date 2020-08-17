@@ -21,7 +21,11 @@ private object LibraryVersion {
     const val GLIDE = "4.11.0"
 
     //Google
-    const val GOOGLE_ANALYTICS = "17.5.0"
+    const val FIREBASE_ANALYTICS = "17.5.0"
+    const val FIREBASE_FIRESTORE = "21.5.0"
+
+    //Koin
+    const val KOIN = "2.1.6"
 }
 
 object LibraryDependency {
@@ -60,5 +64,12 @@ object LibraryDependency {
     const val NAVIGATION_DYNAMIC_FEATURES = "androidx.navigation:navigation-dynamic-features-fragment:${CoreVersion.NAVIGATION}"
 
     //Google
-    const  val GOOGLE_ANALYTICS = "com.google.firebase:firebase-analytics:${LibraryVersion.GOOGLE_ANALYTICS}"
+    const  val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics:${LibraryVersion.FIREBASE_ANALYTICS}"
+    const  val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:${LibraryVersion.FIREBASE_FIRESTORE}"
+
+    //Koin
+    const val KOIN_ANDROID = "org.koin:koin-android:${LibraryVersion.KOIN}"
+    const val KOIN_ANDROID_SCOPE = "org.koin:koin-android-scope:${LibraryVersion.KOIN}"
+    const val KOIN_ANDROID_VIEWMODEL= "org.koin:koin-android-viewmodel:${LibraryVersion.KOIN}"
+    const val KOIN_ANDROID_EXTENSION = "org.koin:koin-android-ext:${LibraryVersion.KOIN}"
 }
