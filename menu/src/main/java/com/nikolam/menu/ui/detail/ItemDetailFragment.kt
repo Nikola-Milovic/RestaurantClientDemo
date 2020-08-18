@@ -1,5 +1,6 @@
 package com.nikolam.menu.ui.detail
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,10 +13,25 @@ import androidx.navigation.fragment.navArgs
 import com.nikolam.core.model.MenuItem
 import com.nikolam.menu.R
 import com.nikolam.menu.databinding.ItemDetailFragmentBinding
+import com.nikolam.menu.di.dataModule
+import com.nikolam.menu.di.viewmodelModule
 import org.koin.android.ext.android.inject
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
+import org.koin.dsl.koinApplication
 import timber.log.Timber
 
 class ItemDetailFragment : Fragment() {
+
+    val moduleList = arrayListOf(dataModule, viewmodelModule)
+
+    private val loadModules by lazy {
+        loadKoinModules(moduleList)
+    }
+
+    private fun injectFeatures() = loadModules
+
+
 
     lateinit var binding : ItemDetailFragmentBinding
 
@@ -66,6 +82,19 @@ class ItemDetailFragment : Fragment() {
             itemID = it.itemID
             Timber.d(it.toString())
         })
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        injectFeatures()
+
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+
+        unloadKoinModules(moduleList)
     }
 
 }
