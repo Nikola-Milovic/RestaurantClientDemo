@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_nav_graph"
+        android:title="Menu"
+        android:icon="@drawable/ic_baseline_house_24"/>
+    <item
+        android:id="@+id/orderFragment"
+        android:title="Porudzbina"
+        android:icon="@drawable/ic_baseline_search_24"/>
+</menu>

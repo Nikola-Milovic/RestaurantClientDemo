@@ -20,8 +20,12 @@ private object LibraryVersion {
     //Glide
     const val GLIDE = "4.11.0"
 
-    //Dagger
-    const val DAGGER = "2.28.3"
+    //Google
+    const val FIREBASE_ANALYTICS = "17.5.0"
+    const val FIREBASE_FIRESTORE = "21.5.0"
+
+    //Koin
+    const val KOIN = "2.1.6"
 }
 
 object LibraryDependency {
@@ -44,7 +48,6 @@ object LibraryDependency {
     const val MATERIAL = "com.google.android.material:material:${LibraryVersion.MATERIAL}"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${LibraryVersion.FRAGMENT_KTX}"
 
-
     //Glide
     const val GLIDE = "com.github.bumptech.glide:glide:${LibraryVersion.GLIDE}"
     const val GLIDE_AP = "com.github.bumptech.glide:compiler:${LibraryVersion.GLIDE}"
@@ -60,12 +63,13 @@ object LibraryDependency {
     const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${CoreVersion.NAVIGATION}"
     const val NAVIGATION_DYNAMIC_FEATURES = "androidx.navigation:navigation-dynamic-features-fragment:${CoreVersion.NAVIGATION}"
 
-    //Dagger
-    const val DAGGER = "com.google.dagger:dagger:${LibraryVersion.DAGGER}"
-    const val DAGGER_COMPILE = "com.google.dagger:dagger-compiler:${LibraryVersion.DAGGER}"
-    const val DAGGER_ANDROID = "com.google.dagger:dagger-android:${LibraryVersion.DAGGER}"
-    const val DAGGER_ANDROID_SUPPORT = "com.google.dagger:dagger-android-support:${LibraryVersion.DAGGER}"
-    const val DAGGER_ANDROID_PROCESSOR = "com.google.dagger:dagger-android-processor:${LibraryVersion.DAGGER}"
+    //Google
+    const  val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics:${LibraryVersion.FIREBASE_ANALYTICS}"
+    const  val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:${LibraryVersion.FIREBASE_FIRESTORE}"
 
-
+    //Koin
+    const val KOIN_ANDROID = "org.koin:koin-android:${LibraryVersion.KOIN}"
+    const val KOIN_ANDROID_SCOPE = "org.koin:koin-android-scope:${LibraryVersion.KOIN}"
+    const val KOIN_ANDROID_VIEWMODEL= "org.koin:koin-android-viewmodel:${LibraryVersion.KOIN}"
+    const val KOIN_ANDROID_EXTENSION = "org.koin:koin-android-ext:${LibraryVersion.KOIN}"
 }

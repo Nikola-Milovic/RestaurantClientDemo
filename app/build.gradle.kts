@@ -39,10 +39,9 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-//    buildFeatures {
-//        dataBinding = true
-//    }
-
+    buildFeatures {
+        dataBinding = true
+    }
 
 }
 
@@ -62,7 +61,19 @@ dependencies {
 
     api(LibraryDependency.TIMBER)
 
-    implementation("com.google.firebase:firebase-analytics:17.2.2")
+
+    implementation(LibraryDependency.FIREBASE_ANALYTICS)
+
+    api(LibraryDependency.KOIN_ANDROID)
+    api(LibraryDependency.KOIN_ANDROID_EXTENSION)
+    api(LibraryDependency.KOIN_ANDROID_SCOPE)
+    api(LibraryDependency.KOIN_ANDROID_VIEWMODEL)
+
+
+    implementation(project(":menu"))
+    implementation(project(":core"))
+    implementation(project(":order"))
+
 
     addTestDependencies()
 }

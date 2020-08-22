@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MenuFragment">
+    <data>
+
+        <variable
+            name="item"
+            type= "com.nikolam.core.model.MenuItem" />
+
+        <variable
+            name="viewModel"
+            type= "com.nikolam.menu.ui.detail.ItemDetailViewModel" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#F8F8F8">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name_textView_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.096"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.097"
+            tools:text="@tools:sample/cities" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_button_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="148dp"
+            android:text="Dodaj"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_textView_detail"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

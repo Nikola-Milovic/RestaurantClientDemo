@@ -16,10 +16,6 @@ fun DependencyHandler.addTestDependencies() {
     testImplementation(TestLibraryDependency.MOCKITO_KOTLIN)
     testImplementation(TestLibraryDependency.COROUTINES_TEST)
     testImplementation(TestLibraryDependency.ANDROID_X_CORE_TESTING)
-
-    kaptTest(LibraryDependency.DAGGER_COMPILE)
-    kaptAndroidTest(LibraryDependency.DAGGER_COMPILE)
-    kaptAndroidTest(LibraryDependency.DAGGER_ANDROID_PROCESSOR)
 }
 
 /*
