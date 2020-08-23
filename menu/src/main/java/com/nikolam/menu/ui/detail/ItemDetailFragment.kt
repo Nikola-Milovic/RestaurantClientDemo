@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.nikolam.core.model.MenuItem
 import com.nikolam.menu.R
 import com.nikolam.menu.databinding.ItemDetailFragmentBinding
 import com.nikolam.menu.di.dataModule
 import com.nikolam.menu.di.viewmodelModule
+import com.nikolam.menu.ui.detail.adapter.OptionsDetailAdapter
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
@@ -41,6 +43,8 @@ class ItemDetailFragment : Fragment() {
 
     private lateinit var menuItem : MenuItem
 
+    lateinit var optionsAdapter: OptionsDetailAdapter
+
     val args : ItemDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -52,9 +56,18 @@ class ItemDetailFragment : Fragment() {
 
         val view = binding.root
 
+
+        optionsAdapter = OptionsDetailAdapter()
+
+        val layoutM =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
         binding.apply {
+            optionsRecycleView.layoutManager = layoutM
             this.viewModel = detailViewModel
+            adapter = optionsAdapter
             lifecycleOwner = this@ItemDetailFragment
+
         }
 
         return view
@@ -70,16 +83,17 @@ class ItemDetailFragment : Fragment() {
 
         binding.addButtonDetail.setOnClickListener {
 
+            menuItem.prices = optionsAdapter.getPrices()
             detailViewModel.orderMenuItem(menuItem)
 
         }
-
 
 
         detailViewModel._itemLiveData.observe(viewLifecycleOwner, Observer {
             menuItem = it
             binding.item = it
             itemID = it.itemID
+            optionsAdapter.addPriceOptions(it.prices)
             Timber.d(it.toString())
         })
     }

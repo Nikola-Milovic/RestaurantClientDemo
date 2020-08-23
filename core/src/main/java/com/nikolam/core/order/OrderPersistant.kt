@@ -5,13 +5,18 @@ import com.nikolam.core.model.OrderItem
 
 class OrderPersistant () {
 
-    private val orderItems  = arrayListOf<OrderItem>(OrderItem("Pizza", 2, ""), OrderItem("Pasta", 1 , ""))
+    private val orderItems  = arrayListOf<OrderItem>()
 
     fun addOrderItem(menuItem: MenuItem){
-        val orderItem = OrderItem()
-        orderItem.name = menuItem.name
 
-        orderItems.add(orderItem)
+        menuItem.prices.forEach {price ->
+            if (price.amount > 0) {
+                val orderItem = OrderItem()
+                orderItem.price = price.price * price.amount
+                orderItem.name = menuItem.name + " " + price.option + "       X " + price.amount.toString() + "     " + orderItem.price.toString() + "RSD"
+                orderItems.add(orderItem)
+            }
+        }
     }
 
     fun removeOrderItem(orderItem: OrderItem){
@@ -24,10 +29,3 @@ class OrderPersistant () {
 
 
 }
-
-
-interface orderManager
-
-interface orderListener: orderManager
-
-interface menuListener :orderManager

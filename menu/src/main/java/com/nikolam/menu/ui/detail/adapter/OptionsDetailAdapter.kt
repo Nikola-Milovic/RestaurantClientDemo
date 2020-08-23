@@ -12,6 +12,7 @@ import com.nikolam.core.utils.bindings
 import com.nikolam.menu.R
 import com.nikolam.menu.databinding.OptionsItemDetailBinding
 import timber.log.Timber
+import java.lang.Integer.max
 
 
 class OptionsDetailAdapter() :
@@ -57,14 +58,24 @@ class OptionsDetailAdapter() :
     }
 
 
-    fun addNewOption() {
-        val price = Price("Promeniti", 0)
-        while (prices.contains(price)) {
-            val rnds = (0..100).random()
-            price.option = "Promeniti$rnds"
+    override fun addItem(item: Price) : Price{
+        for (i in prices.indices){
+            if (prices[i].option == item.option) {
+                prices[i].amount++
+                return prices[i]
+            }
         }
-        prices.add(price)
-        this.notifyDataSetChanged()
+        return item
+    }
+
+    override fun subtractItem(item: Price) : Price{
+        for (i in prices.indices){
+            if (prices[i].option == item.option) {
+                prices[i].amount = maxOf(0, prices[i].amount-1)
+                return prices[i]
+            }
+        }
+        return item
     }
 
     inner class OptionsDetailViewHolder(val view: View, val listener: DataChangeListener) :
@@ -87,30 +98,23 @@ class OptionsDetailAdapter() :
 
                 executePendingBindings()
 
-
                 addActionButton.setOnClickListener {
-
-                    listener.add(data)
-
+                   price = listener.addItem(data)
+                }
+                subtractActionButton.setOnClickListener {
+                    price = listener.subtractItem(data)
                 }
             }
         }
     }
 
-    override fun addItem(item: MenuItem) {
-        TODO("Not yet implemented")
-    }
-
-    override fun subtractItem(item: MenuItem) {
-        TODO("Not yet implemented")
-    }
 
 }
 
 
 interface DataChangeListener {
-    fun addItem(item : MenuItem)
+    fun addItem(item : Price) : Price
 
-    fun subtractItem(item : MenuItem)
+    fun subtractItem(item : Price) : Price
 
 }
