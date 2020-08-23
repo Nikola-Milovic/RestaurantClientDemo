@@ -5,8 +5,5 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewmodelModule = module {
-
-    viewModel{ OrderViewModel(get()) }
-
-
+    viewModel{ OrderViewModel(get(), get()) }
 }
