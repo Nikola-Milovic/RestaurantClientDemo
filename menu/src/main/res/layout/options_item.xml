@@ -6,48 +6,47 @@
     <data>
 
         <variable
-            name="adapter"
-            type="com.nikolam.menu.ui.menu.adapter.OptionsAdapter" />
-
-        <variable
-            name="item"
-            type="com.nikolam.core.model.MenuItem" />
+            name="price"
+            type="com.nikolam.core.model.Price" />
     </data>
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/name_textView"
+            android:id="@+id/option_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{item.name}"
+            android:text="@{price.option}"
             android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.212"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/cities" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/options_recycle_view"
-            adapter="@{adapter}"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/price_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{String.valueOf(price.price)}"
+            android:textSize="30dp"
+            android:layout_marginStart="10sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/name_textView"
-            app:layout_constraintTop_toTopOf="@+id/materialCardView" />
-
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toEndOf="@+id/option_textView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/cities" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

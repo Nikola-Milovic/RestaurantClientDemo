@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nikolam.menu.R
 import com.nikolam.core.model.MenuItem
@@ -50,6 +51,8 @@ class MenuAdapter() :
 
     inner class MenuItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
+        val optionsAdapter = OptionsAdapter()
+
         private lateinit var data: MenuItem
         private val binding: MenuItemBinding by bindings(view)
 
@@ -64,11 +67,17 @@ class MenuAdapter() :
             }
         }
 
+
         private fun drawItemUI() {
             binding.apply {
+                optionsRecycleView.layoutManager =
+                    LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
+                adapter = optionsAdapter
                 item = data
                 executePendingBindings()
             }
+
+            optionsAdapter.addPriceOptions(data.prices)
         }
 
     }
